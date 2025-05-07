@@ -1,14 +1,77 @@
 # Fatores-de-Obito-por-SRAG-na-Paraiba-com-Modelos-Supervisionados-de-Machine-Learning
 Fatores de Óbito por Síndrome Respiratória Aguda Grave na Paraíba com Modelos Supervisionados de Machine Learning
 
-Resumo
+# Predição de Óbito por SRAG na Paraíba com Modelos de Aprendizado de Máquina
 
-Este trabalho teve como objetivo principal investigar os fatores associados ao óbito por Síndrome Respiratória Aguda Grave no estado da Paraíba, por meio da aplicação de modelos supervisionados de aprendizado de máquina. Utilizando dados do SIVEP-Gripe, referentes ao período de 2022 a 2024, foram desenvolvidos modelos preditivos voltados à identificação de pacientes com maior risco de evolução desfavorável, visando contribuir com a priorização de recursos clínicos e estratégias de gestão hospitalar.
-Os objetivos propostos foram alcançados com êxito. Foram aplicados e comparados os desempenhos de cinco algoritmos principais: Regressão Logística, “Decision Tree”, “Random Forest”, “XGBoost” e “LightGBM”. Todos os modelos apresentaram acurácia superior a 85% e AUC acima de 0,89, demonstrando elevada capacidade discriminativa entre os desfechos analisados. Dentre eles, o modelo “LightGBM” destacou-se com o melhor desempenho global na base de teste, revelando-se o mais robusto e estável em termos de equilíbrio entre precisão, “recall”, “F1-score” e AUC, mesmo que as métricas apresentem variações discretas entre os demais modelos.
-Além desses modelos, foi incluída uma Rede Neural Artificial do tipo perceptron multicamadas, com o objetivo de explorar uma abordagem mais complexa e verificar seu desempenho no mesmo conjunto de dados. A RNA alcançou resultados competitivos, com acurácia de 85,16% na base de teste e perda (“loss”) de 0,3525, mostrando estabilidade e boa generalização. No entanto, é importante destacar que essa arquitetura foi incluída com caráter exploratório e teórico, e não superou os resultados obtidos pelos modelos baseados em árvores de decisão, especialmente o “LightGBM”. Essa constatação reforça um ponto essencial na prática do aprendizado de máquina: modelos mais complexos nem sempre garantem melhor desempenho preditivo, especialmente quando a base de dados é tabular e bem estruturada.
-As análises realizadas demonstraram que variáveis como idade avançada, presença de comorbidades, internação em UTI, uso de ventilação invasiva, infecção hospitalar e desconforto respiratório estiveram significativamente associadas ao aumento do risco de óbito. No entanto, é importante destacar que essas associações não implicam, necessariamente, relações de causa e efeito. Em especial, variáveis como a internação em UTI e o uso de ventilação mecânica não são, por si só, causadoras do desfecho óbito, mas sim indicadores da gravidade do quadro clínico, que pode não estar completamente capturada pelas variáveis observadas no modelo — configurando possível endogeneidade. Por outro lado, a vacinação contra a COVID-19 demonstrou um efeito estatisticamente significativo de proteção, reforçando achados prévios da literatura e sublinhando a relevância das estratégias de imunização.
-Para pesquisas futuras, recomenda-se a ampliação da base de dados com a inclusão de variáveis clínicas e comportamentais ainda não contempladas, como tempo de permanência na UTI, histórico de tabagismo, uso prévio de medicamentos, tempo decorrido entre o início dos sintomas e a hospitalização, nível de saturação de oxigênio na admissão, e presença de coinfecções. A incorporação desses dados poderá refinar significativamente a capacidade preditiva dos modelos, permitindo uma estratificação de risco mais precisa. Além disso, seria relevante explorar o uso de dados multimodais, como exames laboratoriais, imagens radiológicas e prontuários eletrônicos, integrando fontes estruturadas e não estruturadas por meio de técnicas de processamento de linguagem natural [PLN] e visão computacional.
- A replicação do estudo em outros estados ou regiões do Brasil também poderá contribuir para validar os achados em diferentes contextos demográficos e epidemiológicos, avaliando a generalização dos modelos desenvolvidos. Outra frente promissora seria a implementação de análises temporais e em tempo real, com o uso de modelos dinâmicos que acompanhem a evolução clínica dos pacientes internados por SRAG. Por fim, sugere-se investigar estratégias de “deployment” dos modelos em sistemas de saúde, com foco em usabilidade, interpretabilidade e integração com fluxos clínicos já existentes, além de realizar estudos de impacto real com equipes médicas, para avaliar a efetividade da adoção dessas ferramentas na prática hospitalar.
-Por fim, embora a RNA e outras abordagens mais avançadas tenham mostrado potencial, a aplicação prática desses modelos requer avaliação criteriosa de sua complexidade, interpretabilidade e desempenho em diferentes contextos. Em cenários clínicos, modelos mais simples, interpretáveis e com bom desempenho, como a Regressão Logística, podem ser mais eficazes e seguros para uso operacional.
-Conclui-se que a utilização de técnicas de aprendizado de máquina, com destaque para o “LightGBM”, mostrou-se eficaz na predição do risco de óbito por SRAG no estado da Paraíba. Os resultados obtidos oferecem subsídios valiosos para apoiar ações preventivas, decisões clínicas e políticas públicas em saúde. A continuidade desta linha de pesquisa, com bases mais completas e a incorporação de dados multimodais, poderá ampliar ainda mais a aplicabilidade e o impacto desses modelos em contextos hospitalares e epidemiológicos.
+Este projeto tem como objetivo identificar os principais fatores associados ao óbito por Síndrome Respiratória Aguda Grave (SRAG) no estado da Paraíba, utilizando modelos supervisionados de aprendizado de máquina. A análise foi conduzida com dados do **SIVEP-Gripe**, abrangendo o período de **2022 a 2024**, com foco na construção de modelos preditivos capazes de auxiliar na priorização de recursos clínicos e no suporte à gestão hospitalar.
+
+## Modelos Aplicados
+
+Foram aplicados e comparados cinco algoritmos principais:
+
+- **Regressão Logística**
+- **Decision Tree**
+- **Random Forest**
+- **XGBoost**
+- **LightGBM**
+
+Todos apresentaram desempenho satisfatório, com **acurácia superior a 85%** e **AUC acima de 0,89**, demonstrando boa capacidade de discriminar os desfechos. O **LightGBM** obteve os melhores resultados na base de teste, com ótimo equilíbrio entre **precisão**, **recall**, **F1-score** e **AUC**, ainda que os demais modelos tenham apresentado métricas próximas.
+
+Adicionalmente, foi explorada uma **Rede Neural Artificial (RNA)** do tipo *perceptron multicamadas*. A RNA obteve:
+
+- **Acurácia**: 85,16%  
+- **Loss**: 0,3525 (base de teste)
+
+Apesar do desempenho competitivo, não superou os modelos baseados em árvores, especialmente o LightGBM, destacando que modelos mais complexos nem sempre oferecem melhores resultados em bases **tabulares e estruturadas**.
+
+## Principais Resultados
+
+As análises indicaram associação significativa entre o risco de óbito e os seguintes fatores:
+
+- Idade avançada
+- Presença de comorbidades
+- Internação em UTI
+- Uso de ventilação invasiva
+- Infecção hospitalar
+- Desconforto respiratório
+
+> ⚠️ Importante: Algumas dessas variáveis são indicativas de gravidade clínica e não necessariamente causas diretas do óbito, podendo refletir **viés de endogeneidade**.
+
+A **vacinação contra a COVID-19** apresentou efeito protetor estatisticamente significativo, corroborando evidências já estabelecidas na literatura.
+
+## Perspectivas Futuras
+
+Para ampliar a robustez e aplicabilidade dos modelos, recomenda-se:
+
+- 📊 **Expandir a base de dados** com variáveis adicionais:
+  - Tempo de permanência na UTI
+  - Histórico de tabagismo
+  - Uso prévio de medicamentos
+  - Tempo entre início dos sintomas e hospitalização
+  - Saturação de oxigênio na admissão
+  - Coinfecções
+- 🧠 **Incorporar dados multimodais**:
+  - Exames laboratoriais
+  - Imagens radiológicas
+  - Prontuários eletrônicos
+  - Técnicas de **PLN** e **Visão Computacional**
+- 🌍 **Replicar o estudo em outros estados ou regiões** para avaliar a generalização dos modelos
+- ⏱️ **Desenvolver modelos dinâmicos** para análise temporal e predições em tempo real
+- 🧩 **Investigar estratégias de deployment**:
+  - Integração com sistemas clínicos
+  - Usabilidade e interpretabilidade
+  - Estudos de impacto prático em ambiente hospitalar
+
+## Conclusão
+
+O uso de algoritmos de aprendizado de máquina — com destaque para o **LightGBM** — mostrou-se eficaz na predição do risco de óbito por SRAG no estado da Paraíba. Os resultados obtidos oferecem subsídios valiosos para ações preventivas, decisões clínicas e formulação de políticas públicas em saúde.
+
+A continuidade desta linha de pesquisa, com dados mais completos e diversas fontes, pode aumentar ainda mais o impacto e a aplicabilidade desses modelos no contexto hospitalar e epidemiológico.
+
+---
+
+🔗 Repositório desenvolvido por **Clébson Freire de Souza**
+
+📄 Dados: [SIVEP-Gripe](https://opendatasus.saude.gov.br/dataset/srag-2024)
+
 
