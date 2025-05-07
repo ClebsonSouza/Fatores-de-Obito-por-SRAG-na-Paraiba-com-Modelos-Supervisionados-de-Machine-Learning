@@ -71,7 +71,3 @@ A continuidade desta linha de pesquisa, com dados mais completos e diversas font
 ---
 
 🔗 Repositório desenvolvido por **Clébson Freire de Souza**
-
-📄 Dados: [SIVEP-Gripe](https://opendatasus.saude.gov.br/dataset/srag-2024)
-
-
